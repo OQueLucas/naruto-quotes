@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Quotes } from '../../components/quotes/Quotes';
+import { Quotes } from '../../components';
 import narutoImg from '../../images/naruto.png';
 
 export function App() {
