@@ -1,11 +1,23 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Quotes } from '../../components';
 import narutoImg from '../../images/naruto.png';
+import { getQuote } from '../../services'
 
 export function App() {
+
+  const [ quoteState, setQuoteState ] = useState({ quote: 'ok', speaker: 'Speaker'});
+
+
+  const onUpdate = async () => {
+    const quote = await getQuote();
+
+    setQuoteState(quote);
+  };
+
   return (
     <Content>
-      <Quotes quote={"ok"} speaker={"Speaker"} />
+      <Quotes  {...quoteState} onUpdate={onUpdate} />
       <NarutoImg src={narutoImg} alt="Naruto with a kunai" />
     </Content>
   )
